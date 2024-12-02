@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function genQR() {
+            var api = "https://quickchart.io/qr?text=";
+            var myimg = document.getElementById("img");
+            var mytext = document.getElementById("qrtext").value;
+            var mysize = document.getElementById("size").value;
+
+            if (mytext !== "" && mysize === "100") {
+                myimg.src = api + encodeURIComponent(mytext) + "&size=100x100";
+            } else if (mytext !== "" && mysize === "150") {
+                myimg.src = api + encodeURIComponent(mytext) + "&size=150x150";
+            } else if (mytext !== "" && mysize === "200") {
+                myimg.src = api + encodeURIComponent(mytext) + "&size=200x200";
+            } else if (mytext !== "" && mysize === "250") {
+                myimg.src = api + encodeURIComponent(mytext) + "&size=250x250";
+            } else if (mytext !== "" && mysize === "300") {
+                myimg.src = api + encodeURIComponent(mytext) + "&size=300x300";
+            } else {
+                alert("Please enter text for the QR code");
+            }
+        }
+    </script>
+    <div class="container">
+        <h2 align="center">QR Code Generator</h2>
+        <center>
+            <img id="img">
+        </center>
+        <select id="size">
+            <option value="100">100x100</option>
+            <option value="150">150x150</option>
+            <option value="200">200x200</option>
+            <option value="250" selected>250x250</option>
+            <option value="300">300x300</option>
+        </select>
+        <br><br>
+        <textarea placeholder="Enter Your Text" id="qrtext"></textarea>
+        <br><br>
+        <input type="submit" value="Generate" onclick="genQR()">
+        <br>
+        <p>Developed by: Vanguri Madhu</p>
+    </div>
+</body>
+</html>
