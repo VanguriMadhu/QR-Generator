@@ -37,6 +37,8 @@ select, textarea, input[type="submit"] {
 
 textarea {
     resize: vertical;
+    outline: none;
+    resize: none;
 }
 
 input[type="submit"] {
